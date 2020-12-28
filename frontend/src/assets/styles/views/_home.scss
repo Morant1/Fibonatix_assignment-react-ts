@@ -1,0 +1,67 @@
+.student-app {
+    position: relative;
+
+    i.trash {
+        position: absolute;
+        right: 60px;
+        font-size: 25px;
+        color: #46adff;
+        cursor: pointer;
+
+        &:hover {
+            color: #38a5ff;
+        }
+    }
+
+    .wrapper {
+        margin: 20px 40px 0 40px;
+
+        .checkbox {
+            margin-left: 20px;
+        }
+
+        .navigation {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn {
+                background-color: white;
+                border: none;
+                margin: 0 5px;
+                border-radius: 50%;
+                font-size: 18px;
+                padding: 0px 4px;
+                font-family: Ubunto, sans-serif;
+                cursor: pointer;
+                color: lightgray;
+                &:hover {
+                    color: rgb(27, 27, 27);
+                }
+                &.color {
+                    color: rgb(29, 29, 29);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .MuiButtonBase-root {
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .student-app i.trash {
+        right: 30px;
+        font-size: 23px;
+    }
+
+    .student-app .wrapper .checkbox {
+        margin-left: 15px;
+    }
+
+    .student-app .wrapper {
+        margin: 30px 15px 0 15px;
+    }
+}

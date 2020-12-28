@@ -1,0 +1,22 @@
+// Setup
+@import "setup/variables.scss";
+@import "setup/functions.scss";
+@import "setup/mixins.scss";
+@import "setup/typography.scss";
+
+// Basics
+@import "basics/helpers.scss";
+@import "basics/layout.scss";
+@import "basics/base.scss";
+@import "basics/links.scss";
+
+// Components
+@import "components/navbar.scss";
+@import "components/student-list.scss";
+@import "components/student-preview.scss";
+@import "components/student-edit.scss";
+
+
+// Views
+@import "views/home.scss";
+@import "views/student-details.scss";

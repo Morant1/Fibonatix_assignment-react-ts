@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: rgb(233, 229, 229);
+    
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0 auto;
+    overflow-x: hidden;
+    font-family: Montserrat,sans-serif;
+}
+
+h1,h2,h3, h4, h5, h6 {
+    margin: 0;
+    padding:0 ; 
+    line-height: 1;
+}
+
+
+
+a {
+    text-decoration: none;
+    color:inherit;
+    &:active,:hover {
+        color:inherit;
+    }
+    
+}
+
+ul,li {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+
+}
+
+p {
+    margin:0;
+    padding: 0;
+}
+
+
+button,select {
+    outline:none;
+    cursor: pointer;
+}
+
+
+.App {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
