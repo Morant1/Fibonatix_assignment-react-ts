@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { save,getById,getPrevNextId } from '../services/studentService'
 import { Student } from '../models/student.model'
+import StudentEdit  from '../cmps/StudentEdit'
 
 
 
@@ -96,7 +97,7 @@ export class StudentDetails extends React.Component<any, MyState> {
                 </div>}
 
                 {isEditMode && <div className="edit-container">
-                    {/* <StudentEdit student={student} onEdit={this.onEdit} onUpdate={this.updateStudent} /> */}
+                    <StudentEdit student={student} onEdit={this.onEdit} onUpdate={this.updateStudent} />
                 </div>}
 
             </div>
