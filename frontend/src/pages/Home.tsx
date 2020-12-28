@@ -39,7 +39,7 @@ export default class Home extends React.Component<any, MyState> {
 
     load = async () => {
         const students = await loadStudents();
-        this.setState({ students }, () => { console.log(this.state.students) })
+        this.setState({ students });
     }
 
     calcPageCount = () => {

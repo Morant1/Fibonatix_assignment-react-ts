@@ -1,12 +1,11 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core';
-
 import { Student } from '../models/student.model'
-import {loadStudents} from '../services/studentService'
+
 
 
 type State = {
-    student: any
+    student: Student
 };
 
 type Props = {
@@ -20,21 +19,8 @@ type Props = {
 export default class StudentEdit extends React.Component<Props, State> {
 
     state: State = {
-        student: {
-            name: '',
-            age: 0 ,
-            gender: '',
-            city: '',
-            email: '',
-            university: ''
-        }
+        student: this.props.student
     };
-
-
-    componentDidMount() {
-        const { student } = this.props;
-        this.setState({ student })
-    }
 
 
     handleInput = (e:React.ChangeEvent<HTMLInputElement>) => {

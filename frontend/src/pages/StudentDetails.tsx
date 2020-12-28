@@ -11,7 +11,7 @@ type MyState = {
     isEditMode: boolean
     nextId: string,
     prevId: string,
-    student: any 
+    student?: Student
 };
 
 export class StudentDetails extends React.Component<any, MyState> {
@@ -19,8 +19,7 @@ export class StudentDetails extends React.Component<any, MyState> {
     state: MyState = {
         isEditMode: false,
         nextId: '',
-        prevId: '',
-        student: null
+        prevId: ''
     };
 
 
@@ -35,7 +34,7 @@ export class StudentDetails extends React.Component<any, MyState> {
         this.loadStudent();
     }
 
-    componentDidUpdate(prevProps:any, prevState:any) {
+    componentDidUpdate(prevProps:any) {
         if (prevProps.match.params._id !== this.props.match.params._id) {
             this.loadStudent()
         }
@@ -44,11 +43,11 @@ export class StudentDetails extends React.Component<any, MyState> {
     loadStudent = async () => {
         const studentId = this.props.match.params._id;
         const student = await getById(studentId);
-        this.setState({ student }, () => { this.getPrevNext() });
+        this.setState({ student }, () => { this.getPrevNext(student) });
     }
 
-    getPrevNext = async () => {
-        const { prevId, nextId } = await getPrevNextId(this.state.student);
+    getPrevNext = async (student:Student) => {
+        const { prevId, nextId } = await getPrevNextId(student);
         this.setState({ prevId, nextId })
     }
 

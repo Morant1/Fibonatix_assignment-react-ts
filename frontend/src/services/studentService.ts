@@ -13,7 +13,7 @@ let gPageData: PageData;
 const BASE_URL = 'http://localhost:3001/student'
 
 
-export const loadStudents = async () => {
+export const loadStudents = async () : Promise<Student[]> => {
     gStudents = loadFromStorage(KEY_STUDENTS);
     if (!gStudents || !gStudents.length) {
         let res = await axios.get(`${BASE_URL}`)
@@ -24,17 +24,17 @@ export const loadStudents = async () => {
     return gStudents
 }
 
-export const getById = (studentId: string) => {
+export const getById = (studentId: string) : Promise<Student> | any => {
     const student = gStudents.find(student => student._id === studentId);
     return Promise.resolve(student);
 }
 
-export const remove = () => {
+export const remove = () : void => {
     gStudents = gStudents.filter(student => !student.isSelected)
     saveToStorage(KEY_STUDENTS, gStudents);
 }
 
-export const save = (currStudent: Student) => {
+export const save = (currStudent: Student) : Promise<Student> => {
     const idx = gStudents.findIndex(student => student._id === currStudent._id)
     gStudents.splice(idx, 1, currStudent);
     saveToStorage(KEY_STUDENTS, gStudents);
@@ -54,17 +54,17 @@ export const getPrevNextId = (currStudent: Student) => {
     })
 }
 
-export const getPageData = () => {
+export const getPageData = () : Promise<PageData> => {
     gPageData = loadFromStorage(KEY_PAGE) || { chosenBtn: 0, pageIdx: 0 }
     return Promise.resolve(gPageData)
 }
 
-export const setPageData = (chosenBtn:any, pageIdx:any) => {
+export const setPageData = (chosenBtn:any, pageIdx:any) : void => {
     gPageData = { chosenBtn, pageIdx };
     saveToStorage(KEY_PAGE, gPageData)
 }
 
-export const selectAll = (isSelect: boolean) => {
+export const selectAll = (isSelect: boolean) : void => {
     gStudents = gStudents.map(student => {
         if (isSelect ? !student.isSelected : student.isSelected) student.isSelected = !student.isSelected
         return student;
