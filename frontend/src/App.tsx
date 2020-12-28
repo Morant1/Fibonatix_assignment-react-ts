@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+
 import { NavBar } from './cmps/NavBar'
 import Home from './pages/Home'
 import { StudentDetails } from './pages/StudentDetails'
@@ -15,7 +16,7 @@ const App: React.FC = () => {
         <NavBar />
         <Switch>
           <Route component={StudentDetails} path='/:_id' />
-          <Route exact path="/" component={Home} />
+          <Route component={Home} path='/' />
         </Switch>
       </Router>
     </div>

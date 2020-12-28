@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export const NavBar: React.FC = ({}) => {
+export const NavBar: React.FC = () => {
     return (
         <div className="navbar">
             <div className="wrapper">

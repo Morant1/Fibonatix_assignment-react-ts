@@ -10,8 +10,8 @@
             font-size: 25px;
             color: #050521;
             cursor: pointer;
-            left: -50px;
-            position: absolute;;
+            left: -60px;
+            position: absolute;
         }
 
         img {
@@ -45,8 +45,8 @@
         h1 {
             font-family: "Ubunto";
             font-size: 2.5rem;
-
             margin-bottom: 20px;
+            width: 100%;
 
             i {
                 color: #46acffa4;
@@ -79,7 +79,7 @@
 
         .next-prev {
             display: flex;
-            margin-top: 10px;
+            margin: 5px 0;
             .btn {
                 color: #46adff;
                 font-size: 25px;
@@ -107,12 +107,20 @@
     }
 }
 
-
 @media only screen and (max-width: 350px) {
     .student-details .details-container h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         i {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
+    }
+
+    .student-details .img-container img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .student-details .img-container i.back {
+        left: -40px;
     }
 }

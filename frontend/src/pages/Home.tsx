@@ -89,7 +89,9 @@ export default class Home extends React.Component<any, MyState> {
     handleInput = () => {
         const checked = !this.state.checked
         selectAll(checked)
-        this.setState({ checked })
+        this.setState({ checked },()=>{
+            this.load()
+        })
     }
 
 

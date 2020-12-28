@@ -53,7 +53,6 @@ export default class StudentEdit extends React.Component<Props, State> {
 
     onSaveStudent = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(this.state.student)
         this.props.onUpdate(this.state.student)
     }
 

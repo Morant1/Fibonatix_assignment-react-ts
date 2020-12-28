@@ -6,7 +6,7 @@ import { PageData } from '../models/pageData.model';
 
 const KEY_STUDENTS = 'STUDENTS';
 const KEY_PAGE = "PAGE";
-let gStudents: Student[] = [];
+let gStudents: Student[] = loadFromStorage(KEY_STUDENTS) || null;
 let gPageData: PageData;
 
 
@@ -14,8 +14,7 @@ const BASE_URL = 'http://localhost:3001/student'
 
 
 export const loadStudents = async () : Promise<Student[]> => {
-    gStudents = loadFromStorage(KEY_STUDENTS);
-    if (!gStudents || !gStudents.length) {
+    if (!gStudents) {
         let res = await axios.get(`${BASE_URL}`)
         gStudents = res.data;
         saveToStorage(KEY_STUDENTS, gStudents);
@@ -31,7 +30,9 @@ export const getById = (studentId: string) : Promise<Student> | any => {
 
 export const remove = () : void => {
     gStudents = gStudents.filter(student => !student.isSelected)
-    saveToStorage(KEY_STUDENTS, gStudents);
+    if (!gStudents.length) saveToStorage(KEY_STUDENTS, null);
+    else saveToStorage(KEY_STUDENTS, gStudents);
+    
 }
 
 export const save = (currStudent: Student) : Promise<Student> => {
